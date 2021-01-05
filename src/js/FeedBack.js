@@ -12,8 +12,13 @@ $(
 
 //1. 搜索框相关
 function SearchWatch() {
-  $('#Js_search').focus(function () {
+  let input_ele = $('#Js_search');
+  input_ele.focus(function () {
     $('.help-search-drop').removeClass('layui-hide')
+  });
+
+  input_ele.blur(function () {
+    $('.help-search-drop').addClass('layui-hide')
   })
 }
 
@@ -27,13 +32,28 @@ function TypeSwitch() {
 
 //3. 表单相关
 function SendInformation() {
-  console.log($('.on').attr("type"));
-  console.log(transformToJson($("#Js_FeedForm").serializeArray()));
-  // $.Post({
-  //   url: "dsa"
-  //   ,data: $("#Js_FeedForm").serialize()
-  //
-  // })
+  if($('#question').val() === '') {
+    layer.msg("内容不能为空！", {anim: 6});
+    return;
+  }
+
+  $.ajax({
+    type: "POST",
+    data: {
+      "type": $('.on').attr("type"),
+      ...transformToJson($("#Js_FeedForm").serializeArray())
+    },
+    success : function (res) {
+      if(res.code) {
+        layer.msg(res.data, {icon:1})
+      }else {
+        layer.msg(res.msg, {icon:2})
+      }
+    },
+    error: function (err) {
+      layer.msg("提交出错，请稍后再试！", {icon:2})
+    }
+  })
 }
 function transformToJson(formData){
   let obj={};
@@ -45,4 +65,3 @@ function transformToJson(formData){
   }
   return obj;
 }
-
