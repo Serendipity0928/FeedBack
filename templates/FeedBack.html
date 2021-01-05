@@ -7,45 +7,50 @@
   <link rel="stylesheet" href="../dist/assets/layui/css/layui.css">
 </head>
 <body>
-  <div class="help-center-banner" style="background: url(../dist/images/help-center-banner.jpg) no-repeat center;">
+  <div class="help-center-banner" style="background: url(../dist/images/help-center-banner.jpg) no-repeat center">
+
     <div class="help-center-search clearfix">
       <div>
-        <input type="text" class="help-search-put fl" placeholder="您好，请问需要什么帮助？">
+        <input type="text" class="help-search-put fl" placeholder="您好，请问需要什么帮助？" id="Js_search">
         <!--如果是变成提问按钮时，增加类名 has-words 去掉了搜索图标 -->
         <span class="qt-btn btn-green-linear search-subtn fl">
           <a href="javascript:;"><!--提问--></a>
         </span>
       </div>
+      <div class="banner-text-wrap">
+        <h1>用心服务&times;成就美好</h1>
+        <p>离散数学网站将在每一位学生的反馈帮助下，不断改善功能和服务。您的每一条意见我们都会查看，并用心改善学生用户体验。</p>
+      </div>
       <div class="help-search-drop layui-hide">
         <div class="drop-box">
           <ul>
-            <li><a href="//www.58pic.com/index.php?m=HelpCenter&amp;qid=44">充值了VIP，怎么现在这个帐号下还是没有VIP?</a></li>
-            <li><a href="//www.58pic.com/index.php?m=HelpCenter&amp;qid=42">点击下载页下载空白/倒计时/未弹出下载框，怎么回事？</a></li>
-            <li><a href="//www.58pic.com/index.php?m=HelpCenter&amp;qid=36">基础vip不能下载精选图片？</a></li>
-            <li><a href="//www.58pic.com/index.php?m=HelpCenter&amp;qid=55">登录千图网下载提示帐号存在多人使用，什么情况？</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
           </ul>
           <p class="error-tip"></p>
         </div>
       </div>
     </div>
+
   </div>
   <div class="help-center-container">
     <div class="feedback-content">
-      <p>您可以通过访问<a href="//www.58pic.com/index.php?m=HelpCenter">「帮助中心」</a>查看热门问题、热门意见反馈</p>
+      <p>您可以通过访问<a href="javascript:;">「帮助中心」</a>查看热门问题、热门意见反馈</p>
       <div class="feedback-type">
         <span class="type-title">反馈类型：</span>
-        <div class="type-list">
-          <a href="javascript:;" class="t1" type="1">使用问题</a>
-          <a href="javascript:;" class="t2 on" type="2">产品功能改进</a>
-          <a href="javascript:;" class="t3" type="3">提交素材需求</a>
+        <div class="type-list" id="Js_type">
+          <a href="javascript:;" class="t1 class_type on" type="1">使用问题</a>
+          <a href="javascript:;" class="t2 class_type" type="2">产品功能改进</a>
         </div>
       </div>
       <div class="suggest-form">
-        <form action="">
+        <form id="Js_FeedForm">
           <div class="input-inline">
             <span class="demand"><i>* </i>需求内容：</span>
             <div class="suggest-textarea">
-              <textarea id="question" name="" placeholder="请输入你在使用过程里遇到的问题？（优质的提问，通常在20-100字之间哦）" maxlength="500"></textarea>
+              <textarea id="question" name="text" placeholder="请输入你在使用过程里遇到的问题？（优质的提问，通常在20-100字之间哦）" maxlength="500"></textarea>
               <span class="count-tip">25-500</span>
             </div>
             <p class="error-info">字数限制在25~500字</p>
@@ -53,16 +58,17 @@
 
           <div class="input-inline" style="margin-bottom: 0px">
             <span class="demand">联系方式：</span>
-            <input id="contact_info" type="text" class="contact-put" placeholder="请留下联系方式（手机号、QQ、邮箱）"></div>
+            <input id="contact_info" name="phone" type="text" class="contact-put" placeholder="请留下联系方式（手机号、QQ、邮箱）">
+          </div>
         </form>
       </div>
       <p id="opinion" style="margin-left: 130px">如果您的意见常见而有价值，我们将会精选至帮助中心</p>
       <div class="send-button">
         <span class="qt-btn btn-green-linear">
-          <a>发送反馈</a>
+          <a href="javascript:;" onclick="SendInformation()">发送反馈</a>
         </span>
         <span class="qt-btn btn-green" id="cancle_center">
-          <a href="#">取消</a>
+          <a href="javascript:;" onclick="document.getElementById('Js_FeedForm').reset()">重置</a>
         </span>
       </div>
     </div>

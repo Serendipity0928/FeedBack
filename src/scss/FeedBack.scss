@@ -66,6 +66,16 @@
       box-shadow: 0 2px 8px 0 rgba(0,0,0,.15);
     }
 
+    .banner-text-wrap {
+      padding-top: 90px;
+      text-align: center;
+      color: #13227a;
+      letter-spacing: 2px;
+      p {
+        margin-top: 10px;
+      }
+    }
+
     .help-search-drop{
       padding-top: 10px;
       position: absolute;
